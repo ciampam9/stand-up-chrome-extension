@@ -5,4 +5,21 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     //padding: $padding;
 }
+
+#standup-overlay {
+	background: #7d7e7d;
+	background: -moz-radial-gradient(center, ellipse cover,  #7d7e7d 0%, #0e0e0e 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#7d7e7d), color-stop(100%,#0e0e0e)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%);
+	background: -o-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  #7d7e7d 0%,#0e0e0e 100%);
+	background: radial-gradient(ellipse at center,  #7d7e7d 0%,#0e0e0e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 );
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9999;
+}
  
