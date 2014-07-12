@@ -7,6 +7,7 @@
       var node;
       if (!document.getElementById('standup-overlay')) {
         node = document.createElement('div');
+        node.id = "standup-overlay";
         node.style.position = "fixed";
         node.style.zIndex = 99999;
         node.style.top = 0;
@@ -20,9 +21,9 @@
   };
 
   if (typeof documet === 'undefined') {
-    console.log("workss");
+    window.addEventListener('DOMContentLoaded', destroy.init());
   } else {
-    console.log('works');
+    destroy.init();
   }
 
 }).call(this);

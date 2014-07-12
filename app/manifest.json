@@ -10,6 +10,7 @@
     "default_locale": "en",
     "background": {
         "scripts": [
+            "bower_components/jquery/dist/jquery.min.js",
             "scripts/chromereload.js",
             "scripts/background.js"
         ]
@@ -23,24 +24,10 @@
     "default_popup": "popup.html"
   },
   "options_page": "options.html",
-  "content_scripts": [
-    {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "css": [
-        "styles/main.css"
-      ],
-      "js": [
-        "scripts/contentscript.js"
-      ],
-      "run_at": "document_end",
-      "all_frames": false
-    }
-  ],
   "permissions": [
     "history",
+    "http://*/",
+    "https://*/",
     "notifications",
     "<all_urls>",
     "tabs"
