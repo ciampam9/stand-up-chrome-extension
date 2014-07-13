@@ -5,19 +5,33 @@ body {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\000039}}
 #standup-overlay {
-  background: #7d7e7d;
-  background: -moz-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #7d7e7d), color-stop(100%, #0e0e0e));
-  /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%);
-  background: -o-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #7d7e7d 0%, #0e0e0e 100%);
-  background: radial-gradient(ellipse at center, #7d7e7d 0%, #0e0e0e 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=1 );
+  background: white;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 9999;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000318}}
+#standup-overlay h1 {
+  font-size: 3em;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000322}}
+#standup-overlay h3 {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000325}}
+#standup-overlay .quote {
+  text-align: center;
+  font-size: 1.2em;
+  font-style: italic;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000330}}
+#standup-overlay .container {
+  width: 960px;
+  margin: 0 auto;
+  padding-top: 50px;
 }

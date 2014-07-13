@@ -31,7 +31,7 @@
           that.onTimerEnd();
         } else {
           console.log(that.seconds);
-          that.seconds--;
+          that.options.displayTimeOnBadge(that.secondsToString(that.seconds--));
         }
       }, 1000);
       return this.start();
@@ -39,8 +39,16 @@
 
     Timer.prototype.onTimerEnd = function() {
       this.init();
-      this.options.destroySessions(this.current);
-      return console.log("test");
+      this.options.endOfInterval(this.current);
+      return this.options.destroySessions(this.current);
+    };
+
+    Timer.prototype.secondsToString = function() {
+      if (this.seconds >= 60) {
+        return Math.round(this.seconds / 60) + "m";
+      } else {
+        return (this.seconds % 60) + "s";
+      }
     };
 
     return Timer;
@@ -49,17 +57,35 @@
 
   timer = new Timer({
     duration: {
-      work: 2,
-      "break": 2
+      work: 1800,
+      "break": 60
     },
-    endOfInterval: function() {
-      chrome.notifications.create("", {
-        type: "basic",
-        title: "Greetings!!",
-        message: "Stand the up you lazy bum!",
-        iconUrl: "http://placekitten.com/200/200"
-      }, function(id) {
-        return console.error(chrome.runtime.lastError);
+    endOfInterval: function(interval) {
+      if (interval === 'break') {
+        chrome.notifications.create("", {
+          type: "basic",
+          title: "Greetings!!",
+          message: "Stand up you lazy bum!",
+          iconUrl: "http://placekitten.com/200/200"
+        }, function(id) {
+          return console.error(chrome.runtime.lastError);
+        });
+        chrome.browserAction.setBadgeBackgroundColor({
+          color: [255, 0, 0, 255]
+        });
+        chrome.browserAction.setBadgeText({
+          text: 'stand up !!'
+        });
+        return;
+      } else {
+        chrome.browserAction.setBadgeBackgroundColor({
+          color: [0, 0, 0, 0]
+        });
+      }
+    },
+    displayTimeOnBadge: function(time) {
+      return chrome.browserAction.setBadgeText({
+        text: time
       });
     },
     destroySessions: function(interval) {
@@ -71,13 +97,25 @@
         windows.forEach(function(window) {
           window.tabs.forEach(function(tab) {
             if (tab.url.indexOf("chrome://") === -1 && tab.url.indexOf("chrome-devtools://") === -1) {
-              return chrome.tabs.executeScript(tab.id, {
+              chrome.tabs.executeScript(tab.id, {
                 file: that.executeScript(interval)
               });
             }
           });
         });
       });
+    },
+    displayWarningMessage: function(interval) {
+      if (interval === 'break') {
+        return chrome.notifications.create('', {
+          type: "basic",
+          title: "Warning",
+          message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
+          iconUrl: "http://placekitten.com/300/300"
+        }, function(id) {
+          return console.error(chrome.runtime.lastError);
+        });
+      }
     },
     executeScript: function(interval) {
       if (interval === 'break') {

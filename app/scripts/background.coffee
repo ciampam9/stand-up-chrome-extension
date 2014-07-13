@@ -24,7 +24,8 @@ class Timer
 				return
 			else
 				console.log(that.seconds)
-				that.seconds--
+				that.options.displayTimeOnBadge(that.secondsToString(that.seconds--))
+				#that.seconds--
 				return
 		, 1000)
 		@start()
@@ -32,26 +33,39 @@ class Timer
 
 	onTimerEnd: ->
 		@init()
-		#@options.endOfInterval()
+		@options.endOfInterval(@current)
 		@options.destroySessions(@current)
-		console.log("test")
+
+	secondsToString: ->
+		if @seconds >= 60
+			return Math.round(@seconds/60) + "m"
+		else
+			return (@seconds % 60) + "s"
 
 timer = new Timer {
 	
 	duration: {
-		work: 2,
-		break: 2
+		work: 1800,
+		break: 60
 	}
 	
-	endOfInterval: () ->
-		chrome.notifications.create("",{
-			type: "basic",
-			title: "Greetings!!",
-			message: "Stand the up you lazy bum!",
-			iconUrl: "http://placekitten.com/200/200"
-		}, (id) -> console.error(chrome.runtime.lastError))
+	endOfInterval: (interval) ->
+		if interval is 'break'
+			chrome.notifications.create("",{
+				type: "basic",
+				title: "Greetings!!",
+				message: "Stand up you lazy bum!",
+				iconUrl: "http://placekitten.com/200/200"
+			}, (id) -> console.error(chrome.runtime.lastError))
+			chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]})
+			chrome.browserAction.setBadgeText({text: 'stand up !!'})
+			return
+		else
+			chrome.browserAction.setBadgeBackgroundColor({color: [0, 0, 0, 0]})
 		return
 
+	displayTimeOnBadge: (time) ->
+		chrome.browserAction.setBadgeText({text: time})
 	destroySessions: (interval) ->
 		that = this
 		chrome.windows.getAll({populate: true}, (windows) ->
@@ -61,13 +75,21 @@ timer = new Timer {
 						chrome.tabs.executeScript(tab.id, {
 							file: that.executeScript(interval)
 						})
+						return
 				)
 				return
 			)
 			return
 		)
 		return
-
+	displayWarningMessage: (interval) ->
+		if interval is 'break'
+			chrome.notifications.create('', {
+				type: "basic",
+				title: "Warning",
+				message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
+				iconUrl: "http://placekitten.com/300/300"
+			}, (id) -> console.error(chrome.runtime.lastError))
 	executeScript: (interval) ->
 		if interval is 'break'
 			return 'scripts/destroySession.js'
