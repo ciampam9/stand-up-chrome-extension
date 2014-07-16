@@ -35,9 +35,9 @@
           that.onTimerEnd();
         } else {
           if (that.seconds === 60) {
-            that.options.minuteWarning();
+            that.options.minuteWarning(that.seconds);
           } else if (that.seconds === 10) {
-            that.options.minuteWarning();
+            that.options.minuteWarning(that.seconds);
           }
           console.log(that.seconds);
           that.options.displayTimeOnBadge(that.secondsToString(that.seconds--));
@@ -125,11 +125,15 @@
           return console.error(chrome.runtime.lastError);
         });
       },
-      minuteWarning: function() {
-        return this.notification("Stand Up Extension", "60 seconds until Stand Up!");
+      minuteWarning: function(interval) {
+        if (interval === 'break') {
+          return this.notification("Stand Up Extension", "60 seconds until Stand Up!");
+        }
       },
-      tenSecondWarning: function() {
-        return this.notification("Stand Up Extension", "get ready to stand up in 10 seconds...");
+      tenSecondWarning: function(interval) {
+        if (interval === 'break') {
+          return this.notification("Stand Up Extension", "get ready to stand up in 10 seconds...");
+        }
       },
       displayWarningMessage: function(interval) {
         var error;

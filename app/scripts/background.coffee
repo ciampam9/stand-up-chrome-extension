@@ -26,9 +26,9 @@ class Timer
 				return
 			else
 				if that.seconds is 60
-					that.options.minuteWarning()
+					that.options.minuteWarning(that.seconds)
 				else if that.seconds is 10
-					that.options.minuteWarning()
+					that.options.minuteWarning(that.seconds)
 				console.log(that.seconds)
 				that.options.displayTimeOnBadge(that.secondsToString(that.seconds--))
 				return
@@ -90,10 +90,12 @@ options = () ->
 					message: message,
 					iconUrl: "http://placekitten.com/200/200"
 				}, (id) -> console.error(chrome.runtime.lastError))
-		minuteWarning: () ->
-			@notification("Stand Up Extension", "60 seconds until Stand Up!")
-		tenSecondWarning: () ->
-			@notification("Stand Up Extension", "get ready to stand up in 10 seconds...")
+		minuteWarning: (interval) ->
+			if interval is 'break'
+				@notification("Stand Up Extension", "60 seconds until Stand Up!")
+		tenSecondWarning: (interval) ->
+			if interval is 'break'
+				@notification("Stand Up Extension", "get ready to stand up in 10 seconds...")
 		displayWarningMessage: (interval) ->
 			if interval is 'break'
 				chrome.notifications.create('', {
