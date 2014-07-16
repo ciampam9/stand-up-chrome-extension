@@ -12,73 +12,113 @@
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000312}}
 #standup-overlay::shadow {
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
+  line-height: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000314}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000316}}
+#standup-overlay::shadow h1, #standup-overlay::shadow h2, #standup-overlay::shadow h3, #standup-overlay::shadow h4, #standup-overlay::shadow h5, #standup-overlay::shadow h6 {
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000319}}
 #standup-overlay::shadow h1 {
   font-size: 3em;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000323}}
 #standup-overlay::shadow h3 {
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000326}}
+#standup-overlay::shadow .img-container {
+  width: 150px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000331}}
+#standup-overlay::shadow .img-container img {
+  width: 100%;
+  height: auto;
+  border: 5px solid #fafafa;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+  border-radius: 500px;
+  -webkit-box-shadow: 5px 5px 0 0 #efefef;
+  box-shadow: 5px 5px 0 0 #efefef;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000342}}
 #standup-overlay::shadow .quote {
   text-align: center;
   font-size: 1.2em;
   font-style: italic;
+  font-weight: 300;
   margin: 0 auto;
   width: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000350}}
 #standup-overlay::shadow .container {
   width: 960px;
   margin: 0 auto;
   padding-top: 50px;
 }
 @media (max-width: 960px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000350}}
   #standup-overlay::shadow .container {
     width: auto;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000358}}
 #standup-overlay::shadow .email-form {
   width: 50%;
   margin: 0 auto;
   padding: 10px;
   margin-top: 20px;
-  background: #efefef;
+  background: #fafafa;
+  border: 2px solid #efefef;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000365}}
 #standup-overlay::shadow .email-form label, #standup-overlay::shadow .email-form input[type="email"] {
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000368}}
 #standup-overlay::shadow .email-form h2 {
   text-align: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000348}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000371}}
 #standup-overlay::shadow .email-form .mc-field-group {
   text-align: left !important;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000374}}
 #standup-overlay::shadow .email-form .email {
   font-size: 14px;
   padding: 5px;
   height: 45px;
-  border: 2px solid #fafafa;
+  border: 2px solid #efefef;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000383}}
+#standup-overlay::shadow .email-form .email:focus {
+  outline: 0;
+  border-color: #ccc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000388}}
 #standup-overlay::shadow .email-form .button {
-  background: black;
+  background: #54b948;
   color: white;
   border: none;
   padding: 15px 40px;
   width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 0 0 #599B49;
+  box-shadow: 5px 5px 0 0 #599B49;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/matthewciampa\/Code\/chrome-extensions\/_standup\/app\/styles\/main\.scss}line{font-family:\0000399}}
+#standup-overlay::shadow .email-form .button:hover {
+  cursor: pointer;
+  background: #42B936;
 }

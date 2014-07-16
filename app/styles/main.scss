@@ -10,7 +10,12 @@ $padding: 20px;
 	text-align: center;
 	color: #444;
 	&::shadow {
+		font-family: Helvetica, Arial, sans-serif;
 		font-size: 16px;
+		line-height: normal;
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+		}
 		h1 {
 			font-size: 3em;
 			text-align: center;
@@ -18,10 +23,27 @@ $padding: 20px;
 		h3 {
 			text-align: center;
 		}
+		.img-container {
+			width: 150px;
+			margin: 0 auto;
+			padding: 20px 0;
+			
+			img {
+				width: 100%;
+				height: auto;
+				border: 5px solid #fafafa;
+				-webkit-border-radius: 500px;
+				-moz-border-radius: 500px;
+				border-radius: 500px;
+				-webkit-box-shadow: 5px 5px 0 0 #efefef;
+				box-shadow: 5px 5px 0 0 #efefef;
+			}
+		}
 		.quote {
 			text-align: center;
 			font-size: 1.2em;
 			font-style: italic;
+			font-weight: 300;
 			margin: 0 auto;
 			width: auto;
 		}
@@ -38,7 +60,8 @@ $padding: 20px;
 			margin: 0 auto;
 			padding: 10px;
 			margin-top: 20px;
-			background: #efefef;
+			background: #fafafa;
+			border: 2px solid #efefef;
 			label, input[type="email"] {
 				width: 100%;
 			}
@@ -52,18 +75,31 @@ $padding: 20px;
 				font-size: 14px;
 				padding: 5px;
 				height: 45px;
-				border: 2px solid #fafafa;
+				border: 2px solid #efefef;
 				-webkit-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 				box-sizing: border-box;
 				margin-bottom: 10px;
+				&:focus {
+					outline: 0;
+					border-color: #ccc;
+				}
 			}
 			.button {
-				background: black;
+				background: #54b948;
 				color: white;
 				border: none;
 				padding: 15px 40px;
 				width: 100%;
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				-webkit-box-shadow: 5px 5px 0 0 #599B49;
+				box-shadow: 5px 5px 0 0 #599B49;
+				&:hover {
+					cursor: pointer;
+					background: #42B936;
+				}
 			}
 		}
 	}

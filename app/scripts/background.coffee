@@ -47,7 +47,7 @@ class Timer
 options = () ->
 	return {
 		duration: {
-			work: 3600, 
+			work: 1, 
 			break: 60
 		}
 		endOfInterval: (interval) ->

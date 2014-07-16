@@ -14,6 +14,9 @@ destroy = {
 				"<div class='container'>
 					<h1>Stand up!</h1>
 					<h3>your chair is killing you!</h3>
+					<div class='img-container'>
+						<img src='http://placekitten.com/300/300' alt='standup logo' width='150' height='150'>
+					</div>
 					<p class='quote'>Do you sit in an office chair for more than six hours a day ? <br>
 						<strong>Risk of heart disease is increased by up to 64%</strong>
 					</p>
@@ -22,8 +25,7 @@ destroy = {
 							<form action='//geneguru.us8.list-manage.com/subscribe/post?u=c83b70b914e7d75d6b2187323&amp;id=2b8f19f75d' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
 								<h2>Subscribe to our mailing list</h2>
 								<div class='mc-field-group'>
-									<label for='mce-EMAIL'>Email Address  <span class='asterisk'>*</span></label>
-									<input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL'>
+									<input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL' placeholder='email address'>
 								</div>
 								<div id='mce-responses' class='clear'>
 									<div class='response' id='mce-error-response' style='display:none'></div>
