@@ -1,18 +1,20 @@
 class Timer
 	constructor: (@options) ->
-		@current = 'break'
-		@next    = 'work'
+		@current = 'break' #TODO: change this to 1 / 0
+		@next    = 'work' #TODO: change this to 1 / 0
 		@seconds = @options.duration[@current]
 		@running = false
 
 	getDuration: ->
 		@seconds
 
+	getInterval: ->
+		@current
 	start: ->
-		previous = @current
-		@current = @next
-		@next = previous
-		@seconds = @options.duration[@current]
+		previous = @current #TODO: change this to 1 / 0
+		@current = @next #TODO: change this to 1 / 0
+		@next = previous #TODO: change this to 1 / 0
+		@seconds = @options.duration[@current] #TODO: change this to 1 / 0
 		return
 
 	init: ->
@@ -23,9 +25,12 @@ class Timer
 				that.onTimerEnd()
 				return
 			else
+				if that.seconds is 60
+					that.options.minuteWarning()
+				else if that.seconds is 10
+					that.options.minuteWarning()
 				console.log(that.seconds)
 				that.options.displayTimeOnBadge(that.secondsToString(that.seconds--))
-				#that.seconds--
 				return
 		, 1000)
 		@start()
@@ -37,23 +42,20 @@ class Timer
 		@options.destroySessions(@current)
 
 	secondsToString: ->
-		if @seconds >= 60
-			return Math.round(@seconds/60) + "m"
-		else
-			return (@seconds % 60) + "s"
+		return if (@seconds >= 60) then parseInt(@seconds / 60) + "m"  else (@seconds % 60) + "s"
 
 options = () ->
 	return {
 		duration: {
-			work: 1, 
-			break: 600
+			work: 3600, 
+			break: 60
 		}
 		endOfInterval: (interval) ->
 			if interval is 'break'
 				chrome.notifications.create("",{
 					type: "basic",
-					title: "Greetings!!",
-					message: "Stand up you lazy bum!",
+					title: "Stand Up Extension",
+					message: "STAND UP !",
 					iconUrl: "http://placekitten.com/200/200"
 				}, (id) -> console.error(chrome.runtime.lastError))
 				chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]})
@@ -81,6 +83,17 @@ options = () ->
 				return
 			)
 			return
+		notification: (title, message, iconUrl) ->
+			chrome.notifications.create("",{
+					type: "basic",
+					title: "Stand Up Extension",
+					message: message,
+					iconUrl: "http://placekitten.com/200/200"
+				}, (id) -> console.error(chrome.runtime.lastError))
+		minuteWarning: () ->
+			@notification("Stand Up Extension", "60 seconds until Stand Up!")
+		tenSecondWarning: () ->
+			@notification("Stand Up Extension", "get ready to stand up in 10 seconds...")
 		displayWarningMessage: (interval) ->
 			if interval is 'break'
 				chrome.notifications.create('', {
@@ -103,8 +116,10 @@ options = () ->
 	}
 
 timer = new Timer options()
-	
-	
+
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) ->
+	if timer.getInterval() is 'break' then chrome.tabs.executeScript(tab.id, {file: 'scripts/destroySession.js'})
+)
 
 
 timer.init()

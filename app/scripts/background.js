@@ -14,6 +14,10 @@
       return this.seconds;
     };
 
+    Timer.prototype.getInterval = function() {
+      return this.current;
+    };
+
     Timer.prototype.start = function() {
       var previous;
       previous = this.current;
@@ -30,6 +34,11 @@
           clearInterval(timerInterval);
           that.onTimerEnd();
         } else {
+          if (that.seconds === 60) {
+            that.options.minuteWarning();
+          } else if (that.seconds === 10) {
+            that.options.minuteWarning();
+          }
           console.log(that.seconds);
           that.options.displayTimeOnBadge(that.secondsToString(that.seconds--));
         }
@@ -45,7 +54,7 @@
 
     Timer.prototype.secondsToString = function() {
       if (this.seconds >= 60) {
-        return Math.round(this.seconds / 60) + "m";
+        return parseInt(this.seconds / 60) + "m";
       } else {
         return (this.seconds % 60) + "s";
       }
@@ -58,15 +67,15 @@
   options = function() {
     return {
       duration: {
-        work: 1,
-        "break": 600
+        work: 3600,
+        "break": 60
       },
       endOfInterval: function(interval) {
         if (interval === 'break') {
           chrome.notifications.create("", {
             type: "basic",
-            title: "Greetings!!",
-            message: "Stand up you lazy bum!",
+            title: "Stand Up Extension",
+            message: "STAND UP !",
             iconUrl: "http://placekitten.com/200/200"
           }, function(id) {
             return console.error(chrome.runtime.lastError);
@@ -106,6 +115,22 @@
           });
         });
       },
+      notification: function(title, message, iconUrl) {
+        return chrome.notifications.create("", {
+          type: "basic",
+          title: "Stand Up Extension",
+          message: message,
+          iconUrl: "http://placekitten.com/200/200"
+        }, function(id) {
+          return console.error(chrome.runtime.lastError);
+        });
+      },
+      minuteWarning: function() {
+        return this.notification("Stand Up Extension", "60 seconds until Stand Up!");
+      },
+      tenSecondWarning: function() {
+        return this.notification("Stand Up Extension", "get ready to stand up in 10 seconds...");
+      },
       displayWarningMessage: function(interval) {
         var error;
         if (interval === 'break') {
@@ -137,6 +162,14 @@
   };
 
   timer = new Timer(options());
+
+  chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    if (timer.getInterval() === 'break') {
+      return chrome.tabs.executeScript(tab.id, {
+        file: 'scripts/destroySession.js'
+      });
+    }
+  });
 
   timer.init();
 
