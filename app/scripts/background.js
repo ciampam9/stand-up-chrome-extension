@@ -1,5 +1,5 @@
 (function() {
-  var Timer, timer;
+  var Timer, options, timer;
 
   Timer = (function() {
     function Timer(options) {
@@ -55,76 +55,88 @@
 
   })();
 
-  timer = new Timer({
-    duration: {
-      work: 1800,
-      "break": 60
-    },
-    endOfInterval: function(interval) {
-      if (interval === 'break') {
-        chrome.notifications.create("", {
-          type: "basic",
-          title: "Greetings!!",
-          message: "Stand up you lazy bum!",
-          iconUrl: "http://placekitten.com/200/200"
-        }, function(id) {
-          return console.error(chrome.runtime.lastError);
+  options = function() {
+    return {
+      duration: {
+        work: 1,
+        "break": 600
+      },
+      endOfInterval: function(interval) {
+        if (interval === 'break') {
+          chrome.notifications.create("", {
+            type: "basic",
+            title: "Greetings!!",
+            message: "Stand up you lazy bum!",
+            iconUrl: "http://placekitten.com/200/200"
+          }, function(id) {
+            return console.error(chrome.runtime.lastError);
+          });
+          chrome.browserAction.setBadgeBackgroundColor({
+            color: [255, 0, 0, 255]
+          });
+          chrome.browserAction.setBadgeText({
+            text: 'stand up'
+          });
+          return;
+        } else {
+          chrome.browserAction.setBadgeBackgroundColor({
+            color: [0, 0, 0, 0]
+          });
+        }
+      },
+      displayTimeOnBadge: function(time) {
+        return chrome.browserAction.setBadgeText({
+          text: time
         });
-        chrome.browserAction.setBadgeBackgroundColor({
-          color: [255, 0, 0, 255]
-        });
-        chrome.browserAction.setBadgeText({
-          text: 'stand up !!'
-        });
-        return;
-      } else {
-        chrome.browserAction.setBadgeBackgroundColor({
-          color: [0, 0, 0, 0]
-        });
-      }
-    },
-    displayTimeOnBadge: function(time) {
-      return chrome.browserAction.setBadgeText({
-        text: time
-      });
-    },
-    destroySessions: function(interval) {
-      var that;
-      that = this;
-      chrome.windows.getAll({
-        populate: true
-      }, function(windows) {
-        windows.forEach(function(window) {
-          window.tabs.forEach(function(tab) {
-            if (tab.url.indexOf("chrome://") === -1 && tab.url.indexOf("chrome-devtools://") === -1) {
-              chrome.tabs.executeScript(tab.id, {
-                file: that.executeScript(interval)
-              });
-            }
+      },
+      destroySessions: function(interval) {
+        var that;
+        that = this;
+        chrome.windows.getAll({
+          populate: true
+        }, function(windows) {
+          windows.forEach(function(window) {
+            window.tabs.forEach(function(tab) {
+              if (tab.url.indexOf("chrome://") === -1 && tab.url.indexOf("chrome-devtools://") === -1) {
+                chrome.tabs.executeScript(tab.id, {
+                  file: that.executeScript(interval)
+                });
+              }
+            });
           });
         });
-      });
-    },
-    displayWarningMessage: function(interval) {
-      if (interval === 'break') {
-        return chrome.notifications.create('', {
-          type: "basic",
-          title: "Warning",
-          message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
-          iconUrl: "http://placekitten.com/300/300"
-        }, function(id) {
-          return console.error(chrome.runtime.lastError);
-        });
+      },
+      displayWarningMessage: function(interval) {
+        var error;
+        if (interval === 'break') {
+          return chrome.notifications.create('', {
+            type: "basic",
+            title: "Warning",
+            message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
+            iconUrl: "http://placekitten.com/300/300"
+          }, (function() {
+            try {
+              return function(id) {
+                return console.error(chrome.runtime.lastError);
+              };
+            } catch (_error) {
+              error = _error;
+              return console.error(error);
+            }
+          })());
+        }
+      },
+      executeScript: function(interval) {
+        if (interval === 'break') {
+          return 'scripts/destroySession.js';
+        } else {
+          return 'scripts/enableSession.js';
+        }
       }
-    },
-    executeScript: function(interval) {
-      if (interval === 'break') {
-        return 'scripts/destroySession.js';
-      } else {
-        return 'scripts/enableSession.js';
-      }
-    }
-  });
+    };
+  };
+
+  timer = new Timer(options());
 
   timer.init();
 

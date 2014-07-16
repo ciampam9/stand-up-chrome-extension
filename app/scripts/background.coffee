@@ -8,7 +8,7 @@ class Timer
 	getDuration: ->
 		@seconds
 
-	start: () ->
+	start: ->
 		previous = @current
 		@current = @next
 		@next = previous
@@ -42,60 +42,69 @@ class Timer
 		else
 			return (@seconds % 60) + "s"
 
-timer = new Timer {
-	
-	duration: {
-		work: 1800,
-		break: 60
-	}
-	
-	endOfInterval: (interval) ->
-		if interval is 'break'
-			chrome.notifications.create("",{
-				type: "basic",
-				title: "Greetings!!",
-				message: "Stand up you lazy bum!",
-				iconUrl: "http://placekitten.com/200/200"
-			}, (id) -> console.error(chrome.runtime.lastError))
-			chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]})
-			chrome.browserAction.setBadgeText({text: 'stand up !!'})
+options = () ->
+	return {
+		duration: {
+			work: 1, 
+			break: 600
+		}
+		endOfInterval: (interval) ->
+			if interval is 'break'
+				chrome.notifications.create("",{
+					type: "basic",
+					title: "Greetings!!",
+					message: "Stand up you lazy bum!",
+					iconUrl: "http://placekitten.com/200/200"
+				}, (id) -> console.error(chrome.runtime.lastError))
+				chrome.browserAction.setBadgeBackgroundColor({color: [255, 0, 0, 255]})
+				chrome.browserAction.setBadgeText({text: 'stand up'})
+				return
+			else
+				chrome.browserAction.setBadgeBackgroundColor({color: [0, 0, 0, 0]})
 			return
-		else
-			chrome.browserAction.setBadgeBackgroundColor({color: [0, 0, 0, 0]})
-		return
 
-	displayTimeOnBadge: (time) ->
-		chrome.browserAction.setBadgeText({text: time})
-	destroySessions: (interval) ->
-		that = this
-		chrome.windows.getAll({populate: true}, (windows) ->
-			windows.forEach((window) ->
-				window.tabs.forEach((tab) ->
-					if tab.url.indexOf("chrome://") is -1 and tab.url.indexOf("chrome-devtools://") is -1
-						chrome.tabs.executeScript(tab.id, {
-							file: that.executeScript(interval)
-						})
-						return
+		displayTimeOnBadge: (time) ->
+			chrome.browserAction.setBadgeText({text: time})
+		destroySessions: (interval) ->
+			that = this
+			chrome.windows.getAll({populate: true}, (windows) ->
+				windows.forEach((window) ->
+					window.tabs.forEach((tab) ->
+						if tab.url.indexOf("chrome://") is -1 and tab.url.indexOf("chrome-devtools://") is -1
+							chrome.tabs.executeScript(tab.id, {
+								file: that.executeScript(interval)
+							})
+							return
+					)
+					return
 				)
 				return
 			)
 			return
-		)
-		return
-	displayWarningMessage: (interval) ->
-		if interval is 'break'
-			chrome.notifications.create('', {
-				type: "basic",
-				title: "Warning",
-				message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
-				iconUrl: "http://placekitten.com/300/300"
-			}, (id) -> console.error(chrome.runtime.lastError))
-	executeScript: (interval) ->
-		if interval is 'break'
-			return 'scripts/destroySession.js'
-		else
-			return 'scripts/enableSession.js'
-}
+		displayWarningMessage: (interval) ->
+			if interval is 'break'
+				chrome.notifications.create('', {
+					type: "basic",
+					title: "Warning",
+					message: "Your browser activities will be blocked within the next minute.  Please be prepared.",
+					iconUrl: "http://placekitten.com/300/300"
+				}, 
+				try
+					(id) -> console.error(chrome.runtime.lastError)
+				catch error
+					console.error(error)
+
+				)
+		executeScript: (interval) ->
+			if interval is 'break'
+				return 'scripts/destroySession.js'
+			else
+				return 'scripts/enableSession.js'
+	}
+
+timer = new Timer options()
+	
+	
 
 
 timer.init()
