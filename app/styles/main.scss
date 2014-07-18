@@ -1,5 +1,6 @@
 $padding: 20px;
 #standup-overlay {
+	font-family: Helvetica, Arial, sans-serif;
 	background: white;
 	position: fixed;
 	top: 0;
@@ -103,6 +104,17 @@ $padding: 20px;
 			}
 		}
 	}
-	
+}
+
+#standup-popup-container {
+	font-family: Helvetica, Arial, sans-serif;
+	width: 400px;
+	padding: 25px;
+	border-bottom: 4px solid #54b948;
+	h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 300; }
+	h4 {
+		font-style: italic;
+		color: #666;
+	}
 }
  

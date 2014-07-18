@@ -23,7 +23,7 @@ destroy = {
 					<div class='email-form'>
 						<div id='mc_embed_signup'>
 							<form action='//geneguru.us8.list-manage.com/subscribe/post?u=c83b70b914e7d75d6b2187323&amp;id=2b8f19f75d' method='post' id='mc-embedded-subscribe-form' name='mc-embedded-subscribe-form' class='validate' target='_blank' novalidate>
-								<h2>Subscribe to our mailing list</h2>
+								<h3>Get more free apps and resources to lead a happier and healthier life</h3>
 								<div class='mc-field-group'>
 									<input type='email' value='' name='EMAIL' class='required email' id='mce-EMAIL' placeholder='email address'>
 								</div>
@@ -32,7 +32,7 @@ destroy = {
 									<div class='response' id='mce-success-response' style='display:none'></div>
 								</div>
 								<div style='position: absolute; left: -5000px;'><input type='text' name='b_c83b70b914e7d75d6b2187323_2b8f19f75d' tabindex='-1' value=''></div>
-								<div class='clear'><input type='submit' value='Subscribe' name='subscribe' id='mc-embedded-subscribe' class='button'></div>
+								<div class='clear'><input type='submit' value='Let&#039;s do this!' name='subscribe' id='mc-embedded-subscribe' class='button'></div>
 							</form>
 						</div>
 					</div>
