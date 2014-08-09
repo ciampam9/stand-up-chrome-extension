@@ -1,20 +1,15 @@
 class Timer
 	constructor: (@options) ->
-		@current = 'break' #TODO: change this to 1 / 0
-		@next    = 'work' #TODO: change this to 1 / 0
-		@seconds = @options.duration[@current]
+		@current = 1
 		@running = false
-
+		@seconds = @options.duration[@current]
 	getDuration: ->
 		@seconds
-
 	getInterval: ->
 		@current
-	start: ->
-		previous = @current #TODO: change this to 1 / 0
-		@current = @next #TODO: change this to 1 / 0
-		@next = previous #TODO: change this to 1 / 0
-		@seconds = @options.duration[@current] #TODO: change this to 1 / 0
+	setTimer: ->
+		@current = if @current is 0 then 1 else 0
+		@seconds = @options.duration[@current]
 		return
 
 	init: ->
@@ -33,8 +28,7 @@ class Timer
 				that.options.displayTimeOnBadge(that.secondsToString(that.seconds--))
 				return
 		, 1000)
-		@start()
-		
+		@setTimer()
 
 	onTimerEnd: ->
 		@init()
@@ -46,12 +40,9 @@ class Timer
 
 options = () ->
 	return {
-		duration: {
-			work: 3600, 
-			break: 60
-		}
+		duration: [3600, 60]
 		endOfInterval: (interval) ->
-			if interval is 'break'
+			if interval is 1
 				chrome.notifications.create("",{
 					type: "basic",
 					title: "Stand Up Extension",
@@ -91,13 +82,13 @@ options = () ->
 					iconUrl: "http://placekitten.com/200/200"
 				}, (id) -> console.error(chrome.runtime.lastError))
 		minuteWarning: (interval) ->
-			if interval is 'break'
+			if interval is 1
 				@notification("Stand Up Extension", "60 seconds until Stand Up!")
 		tenSecondWarning: (interval) ->
-			if interval is 'break'
+			if interval is 1
 				@notification("Stand Up Extension", "get ready to stand up in 10 seconds...")
 		displayWarningMessage: (interval) ->
-			if interval is 'break'
+			if interval is 1
 				chrome.notifications.create('', {
 					type: "basic",
 					title: "Warning",
@@ -111,16 +102,16 @@ options = () ->
 
 				)
 		executeScript: (interval) ->
-			if interval is 'break'
-				return 'scripts/destroySession.js'
+			if interval is 1
+				return 'scripts/createLanding.js'
 			else
-				return 'scripts/enableSession.js'
+				return 'scripts/destroyLanding.js'
 	}
 
 timer = new Timer options()
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) ->
-	if timer.getInterval() is 'break' then chrome.tabs.executeScript(tab.id, {file: 'scripts/destroySession.js'})
+	if timer.getInterval() then chrome.tabs.executeScript(tab.id, {file: 'scripts/createLanding.js'})
 )
 
 

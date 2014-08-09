@@ -1,5 +1,5 @@
 #'use strict'
-overlay = document.getElementById('standup-overlay')
+overlay = document.getElementById('standup-overlay') 
 if overlay
 	document.body.removeChild(overlay)
 else

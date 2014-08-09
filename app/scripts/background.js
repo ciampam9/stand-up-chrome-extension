@@ -4,10 +4,9 @@
   Timer = (function() {
     function Timer(options) {
       this.options = options;
-      this.current = 'break';
-      this.next = 'work';
-      this.seconds = this.options.duration[this.current];
+      this.current = 1;
       this.running = false;
+      this.seconds = this.options.duration[this.current];
     }
 
     Timer.prototype.getDuration = function() {
@@ -18,11 +17,8 @@
       return this.current;
     };
 
-    Timer.prototype.start = function() {
-      var previous;
-      previous = this.current;
-      this.current = this.next;
-      this.next = previous;
+    Timer.prototype.setTimer = function() {
+      this.current = this.current === 0 ? 1 : 0;
       this.seconds = this.options.duration[this.current];
     };
 
@@ -43,7 +39,7 @@
           that.options.displayTimeOnBadge(that.secondsToString(that.seconds--));
         }
       }, 1000);
-      return this.start();
+      return this.setTimer();
     };
 
     Timer.prototype.onTimerEnd = function() {
@@ -66,12 +62,9 @@
 
   options = function() {
     return {
-      duration: {
-        work: 3600,
-        "break": 60
-      },
+      duration: [3600, 60],
       endOfInterval: function(interval) {
-        if (interval === 'break') {
+        if (interval === 1) {
           chrome.notifications.create("", {
             type: "basic",
             title: "Stand Up Extension",
@@ -126,18 +119,18 @@
         });
       },
       minuteWarning: function(interval) {
-        if (interval === 'break') {
+        if (interval === 1) {
           return this.notification("Stand Up Extension", "60 seconds until Stand Up!");
         }
       },
       tenSecondWarning: function(interval) {
-        if (interval === 'break') {
+        if (interval === 1) {
           return this.notification("Stand Up Extension", "get ready to stand up in 10 seconds...");
         }
       },
       displayWarningMessage: function(interval) {
         var error;
-        if (interval === 'break') {
+        if (interval === 1) {
           return chrome.notifications.create('', {
             type: "basic",
             title: "Warning",
@@ -156,10 +149,10 @@
         }
       },
       executeScript: function(interval) {
-        if (interval === 'break') {
-          return 'scripts/destroySession.js';
+        if (interval === 1) {
+          return 'scripts/createLanding.js';
         } else {
-          return 'scripts/enableSession.js';
+          return 'scripts/destroyLanding.js';
         }
       }
     };
@@ -168,9 +161,9 @@
   timer = new Timer(options());
 
   chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    if (timer.getInterval() === 'break') {
+    if (timer.getInterval()) {
       return chrome.tabs.executeScript(tab.id, {
-        file: 'scripts/destroySession.js'
+        file: 'scripts/createLanding.js'
       });
     }
   });

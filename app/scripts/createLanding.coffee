@@ -1,17 +1,6 @@
 'use strict'
 destroy = {
-	setShadowDom: () ->
-		if not document.getElementById('standup-overlay')
-			node = document.createElement('div')
-			node.id = 'standup-overlay'
-			document.body.appendChild(node)
-			node.innerHTML = "test"
-			return @setShadowDom()
-		else
-			container = document.querySelector('#standup-overlay')
-			shadow = container.createShadowRoot()
-			shadow.innerHTML = 
-				"<div class='container'>
+	content: "<div class='container'>
 					<h1>Stand up!</h1>
 					<h3>your chair is killing you!</h3>
 					<div class='img-container'>
@@ -37,6 +26,19 @@ destroy = {
 						</div>
 					</div>
 				</div>"
+	setShadowDom: () ->
+		that = this
+		if not document.getElementById('standup-overlay')
+			node = document.createElement('div')
+			node.id = 'standup-overlay'
+			document.body.appendChild(node)
+			node.innerHTML = "test"
+			return @setShadowDom()
+		else
+			container = document.querySelector('#standup-overlay')
+			shadow = container.createShadowRoot()
+			shadow.innerHTML =  that.content
+				
 	init: () ->
 		@setShadowDom()
 }
