@@ -40,7 +40,7 @@ class Timer
 
 options = () ->
 	return {
-		duration: [3600, 60]
+		duration: [1, 60]
 		endOfInterval: (interval) ->
 			if interval is 1
 				chrome.notifications.create("",{
