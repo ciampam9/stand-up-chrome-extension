@@ -2,7 +2,7 @@ $padding: 20px;
 @import 'mixins';
 
 #standup-overlay {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "Lato", Helvetica, Arial, sans-serif;
 	background: white;
 	position: fixed;
 	top: 0;
@@ -15,13 +15,13 @@ $padding: 20px;
 	&::shadow {
 		$radialBarColor: #C86DD7 ;
 		$timerColor: rgba(255, 255, 255, 0.8);
-		$fontColor: #888;
-		$fontFamily: "Helvetica Neue";
+		$fontColor: #333;
+		$fontFamily: "Lato";
 		$backgroundColor: #fff;
 		$backgroundTimerColor: white;
 		$sizeTimer: 200px;
-		$borderWidth: 4px;
-		$fontSize: 70px;
+		$borderWidth: 3px;
+		$fontSize: 80px;
 
 		.radialtimer {
 			width: 200px;
@@ -44,6 +44,7 @@ $padding: 20px;
 				line-height: $sizeTimer;
 				font-family: $fontFamily;
 				font-size: $fontSize;
+				font-weight: 100;
 				color: $fontColor;
 			}
 
@@ -87,7 +88,8 @@ $padding: 20px;
 			margin: 0;
 		}
 		h1 {
-			font-size: 3em;
+			font-size: 88px;
+			font-weight: 100;
 			text-align: center;
 		}
 		h3 {
@@ -174,7 +176,7 @@ $padding: 20px;
 }
 
 #standup-popup-container {
-	font-family: Helvetica, Arial, sans-serif;
+	font-family: "Lato", Helvetica, Arial, sans-serif;
 	width: 400px;
 	padding: 25px;
 	border-bottom: 4px solid #54b948;
