@@ -67,7 +67,7 @@
   })();
 
   destroy = {
-    content: "<div class='container'>					<div class='img-container'>						<div class='radialtimer'>							<div id='spinner'>								<div class='n'></div>								<div class='slice'>									<div class='q'></div>									<div class='pie r'></div>									<div class='pie l'></div>								</div>							</div>						</div>					</div>					<h1>Stand Up!</h1>				</div>",
+    content: "<div class='container'>					<div class='img-container'>						<div class='radialtimer animated fadeInUp'>							<div id='spinner'>								<div class='n'></div>								<div class='slice'>									<div class='q'></div>									<div class='pie r'></div>									<div class='pie l'></div>								</div>							</div>						</div>					</div>					<h1 class='animated fadeInUp'>Stand Up!</h1>				</div>",
     setShadowDom: function() {
       var container, node, shadow, that;
       that = this;

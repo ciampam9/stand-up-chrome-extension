@@ -56,7 +56,7 @@ class radialTimer
 destroy = {
 	content: "<div class='container'>
 					<div class='img-container'>
-						<div class='radialtimer'>
+						<div class='radialtimer animated fadeInUp'>
 							<div id='spinner'>
 								<div class='n'></div>
 								<div class='slice'>
@@ -67,7 +67,7 @@ destroy = {
 							</div>
 						</div>
 					</div>
-					<h1>Stand Up!</h1>
+					<h1 class='animated fadeInUp'>Stand Up!</h1>
 				</div>"
 	setShadowDom: () ->
 		that = this
