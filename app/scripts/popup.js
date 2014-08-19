@@ -1,7 +1,7 @@
 (function() {
   'use strict';
-  console.log("test");
+  var app;
 
-  document.getElementById('timer').innerHTML = "Testing";
+  app = angular.module("twitter-share", []);
 
 }).call(this);

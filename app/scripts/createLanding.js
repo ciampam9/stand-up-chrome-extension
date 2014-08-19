@@ -88,7 +88,7 @@
     }
   };
 
-  if (typeof documet === 'undefined') {
+  if (typeof document === 'undefined') {
     window.addEventListener('DOMContentLoaded', destroy.init());
   } else {
     destroy.init();
