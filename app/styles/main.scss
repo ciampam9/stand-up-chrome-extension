@@ -1,7 +1,16 @@
 $padding: 20px;
 @import 'mixins';
-
+$radialBarColor: #fff ;
+$timerColor: rgba(255, 255, 255, 0.8);
+$fontColor: #fff;
+$fontFamily: "Lato";
+$backgroundColor: #fff;
+$backgroundTimerColor: white;
+$sizeTimer: 200px;
+$borderWidth: 3px;
+$fontSize: 80px;
 #standup-overlay {
+
 	font-family: "Lato", Helvetica, Arial, sans-serif;
 	@include gradient(45deg, #C86DD7, #3023AE);
 	position: fixed;
@@ -13,15 +22,10 @@ $padding: 20px;
 	text-align: center;
 	color: #fff;
 	&::shadow {
-		$radialBarColor: #fff ;
-		$timerColor: rgba(255, 255, 255, 0.8);
-		$fontColor: #fff;
-		$fontFamily: "Lato";
-		$backgroundColor: #fff;
-		$backgroundTimerColor: white;
-		$sizeTimer: 200px;
-		$borderWidth: 3px;
-		$fontSize: 80px;
+		
+		font-family: Helvetica, Arial, sans-serif;
+		font-size: 16px;
+		line-height: normal;
 
 		.radialtimer {
 			width: 200px;
@@ -78,54 +82,11 @@ $padding: 20px;
 					transition: all 1s linear;
 					z-index: 1;
 				}
+
 			}
 		}
 
-		.animated {
-		  -webkit-animation-duration: 1s;
-		  animation-duration: 1s;
-		  -webkit-animation-fill-mode: both;
-		  animation-fill-mode: both;
-		}
-
-		@-webkit-keyframes fadeInUp {
-		  0% {
-		    opacity: 0;
-		    -webkit-transform: translate3d(0, 100%, 0);
-		    transform: translate3d(0, 100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    -ms-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    -ms-transform: none;
-    transform: none;
-  }
-}
-
-
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-
-		font-family: Helvetica, Arial, sans-serif;
-		font-size: 16px;
-		line-height: normal;
+		
 		h1, h2, h3, h4, h5, h6 {
 			margin: 0;
 		}

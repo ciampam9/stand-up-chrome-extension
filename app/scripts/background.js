@@ -62,7 +62,7 @@
 
   options = function() {
     return {
-      duration: [1, 60],
+      duration: [3600, 30],
       endOfInterval: function(interval) {
         if (interval === 1) {
           chrome.notifications.create("", {

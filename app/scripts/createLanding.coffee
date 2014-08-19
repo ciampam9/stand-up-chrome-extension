@@ -36,9 +36,8 @@ class radialTimer
 				
 				self.degrees = self.degrees + (360 / self.seconds)
 				console.log(self.degrees)
-				if self.count >= (self.seconds / 2)
+				if self.count > (self.seconds / 2)
 					className = "nc"
-					console.log(self.slice.classList)
 					if self.slice.classList
 						self.slice.classList.add(className)
 					else
@@ -47,10 +46,13 @@ class radialTimer
 						self.pieRight.style.transform = "rotate(180deg)"
 					self.pieLeft.style.transform = "rotate(#{self.degrees}deg)"
 					self.slice.classList.add("mth")
-					if self.count >= (self.seconds * 0.75)
-						self.quarter.parentNode.removeChild(self.quarter)
+					#if self.count >= (self.seconds * 0.75)
+					#	self.quarter.parentNode.removeChild(self.quarter)
+					#	return
 				else
-					self.pie.style.transform = "rotate(#{self.degrees}deg)"
+					self.pieLeft.style.transform = "rotate(" + self.degrees + "deg)"
+					self.pieRight.style.transform = "rotate(" + self.degrees + "deg)"
+					return
 			, 1000)
 
 destroy = {
@@ -60,7 +62,7 @@ destroy = {
 							<div id='spinner'>
 								<div class='n'></div>
 								<div class='slice'>
-									<div class='q'></div>
+									
 									<div class='pie r'></div>
 									<div class='pie l'></div>
 								</div>

@@ -1,4 +1,4 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\000034}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000312}}
 #standup-overlay {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   background: -webkit-linear-gradient(45deg, #c86dd7, #3023ae);
@@ -18,53 +18,19 @@
   text-align: center;
   color: #fff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000315}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000324}}
 #standup-overlay::shadow {
-  @-webkit-keyframes fadeInUp {
-    /* line 92, main.scss */
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-
-    /* line 97, main.scss */
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      transform: none;
-    }
-}
-
-  @keyframes fadeInUp {
-    /* line 106, main.scss */
-    0% {
-      opacity: 0;
-      -webkit-transform: translate3d(0, 100%, 0);
-      -ms-transform: translate3d(0, 100%, 0);
-      transform: translate3d(0, 100%, 0);
-    }
-
-    /* line 112, main.scss */
-    100% {
-      opacity: 1;
-      -webkit-transform: none;
-      -ms-transform: none;
-      transform: none;
-    }
-}
-
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: normal;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000326}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000330}}
 #standup-overlay::shadow .radialtimer {
   width: 200px;
   height: 200px;
   margin: 0 auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000337}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000341}}
 #standup-overlay::shadow .radialtimer .n {
   position: absolute;
   width: 200px;
@@ -78,18 +44,18 @@
   font-weight: 100;
   color: white;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000351}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000355}}
 #standup-overlay::shadow .radialtimer .slice {
   position: absolute;
   width: 200px;
   height: 200px;
   clip: rect(0px, 200px, 200px, 100px);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000361}}
 #standup-overlay::shadow .radialtimer .slice.nc {
   clip: rect(auto, auto, auto, auto);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000361}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000365}}
 #standup-overlay::shadow .radialtimer .slice .q {
   position: absolute;
   width: 194px;
@@ -99,7 +65,7 @@
   clip: rect(0px, 100px, 100px, 0px);
   z-index: 2;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000371}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000375}}
 #standup-overlay::shadow .radialtimer .slice .pie {
   border: 3px white solid;
   position: absolute;
@@ -110,39 +76,27 @@
   transition: all 1s linear;
   z-index: 1;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000384}}
-#standup-overlay::shadow .animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003121}}
-#standup-overlay::shadow .fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003129}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000390}}
 #standup-overlay::shadow h1, #standup-overlay::shadow h2, #standup-overlay::shadow h3, #standup-overlay::shadow h4, #standup-overlay::shadow h5, #standup-overlay::shadow h6 {
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000393}}
 #standup-overlay::shadow h1 {
   font-size: 88px;
   font-weight: 100;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003137}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\0000398}}
 #standup-overlay::shadow h3 {
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003140}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003101}}
 #standup-overlay::shadow .img-container {
   width: 200px;
   margin: 0 auto;
   padding: 20px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003106}}
 #standup-overlay::shadow .img-container img {
   width: 100%;
   height: auto;
@@ -153,7 +107,7 @@
   -webkit-box-shadow: 5px 5px 0 0 #efefef;
   box-shadow: 5px 5px 0 0 #efefef;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003156}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003117}}
 #standup-overlay::shadow .quote {
   text-align: center;
   font-size: 1.2em;
@@ -162,19 +116,19 @@
   margin: 0 auto;
   width: auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003125}}
 #standup-overlay::shadow .container {
   width: 960px;
   margin: 0 auto;
   padding-top: 50px;
 }
 @media (max-width: 960px) {
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003164}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003125}}
   #standup-overlay::shadow .container {
     width: auto;
   }
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003172}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003133}}
 #standup-overlay::shadow .email-form {
   width: 50%;
   margin: 0 auto;
@@ -183,19 +137,19 @@
   background: #fafafa;
   border: 2px solid #efefef;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003179}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003140}}
 #standup-overlay::shadow .email-form label, #standup-overlay::shadow .email-form input[type="email"] {
   width: 100%;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003182}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003143}}
 #standup-overlay::shadow .email-form h2 {
   text-align: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003185}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003146}}
 #standup-overlay::shadow .email-form .mc-field-group {
   text-align: left !important;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003149}}
 #standup-overlay::shadow .email-form .email {
   font-size: 14px;
   padding: 5px;
@@ -206,12 +160,12 @@
   box-sizing: border-box;
   margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003195}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003156}}
 #standup-overlay::shadow .email-form .email:focus {
   outline: 0;
   border-color: #ccc;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003200}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003161}}
 #standup-overlay::shadow .email-form .button {
   background: #54b948;
   color: white;
@@ -224,25 +178,25 @@
   -webkit-box-shadow: 5px 5px 0 0 #599B49;
   box-shadow: 5px 5px 0 0 #599B49;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003172}}
 #standup-overlay::shadow .email-form .button:hover {
   cursor: pointer;
   background: #42B936;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003220}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003181}}
 #standup-popup-container {
   font-family: "Lato", Helvetica, Arial, sans-serif;
   width: 400px;
   padding: 25px;
   border-bottom: 4px solid #54b948;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003186}}
 #standup-popup-container h1, #standup-popup-container h2, #standup-popup-container h3, #standup-popup-container h4, #standup-popup-container h5, #standup-popup-container h6 {
   margin: 0;
   font-weight: 300;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003226}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/Kyle\/Documents\/Gene\%20Guru\/stand-up-chrome-extension\/app\/styles\/main\.scss}line{font-family:\00003187}}
 #standup-popup-container h4 {
   font-style: italic;
   color: #666;

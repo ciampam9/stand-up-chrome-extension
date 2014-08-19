@@ -39,9 +39,8 @@
           }
           self.degrees = self.degrees + (360 / self.seconds);
           console.log(self.degrees);
-          if (self.count >= (self.seconds / 2)) {
+          if (self.count > (self.seconds / 2)) {
             className = "nc";
-            console.log(self.slice.classList);
             if (self.slice.classList) {
               self.slice.classList.add(className);
             } else {
@@ -51,12 +50,10 @@
               self.pieRight.style.transform = "rotate(180deg)";
             }
             self.pieLeft.style.transform = "rotate(" + self.degrees + "deg)";
-            self.slice.classList.add("mth");
-            if (self.count >= (self.seconds * 0.75)) {
-              return self.quarter.parentNode.removeChild(self.quarter);
-            }
+            return self.slice.classList.add("mth");
           } else {
-            return self.pie.style.transform = "rotate(" + self.degrees + "deg)";
+            self.pieLeft.style.transform = "rotate(" + self.degrees + "deg)";
+            self.pieRight.style.transform = "rotate(" + self.degrees + "deg)";
           }
         }, 1000);
       };
@@ -67,7 +64,7 @@
   })();
 
   destroy = {
-    content: "<div class='container'>					<div class='img-container'>						<div class='radialtimer animated fadeInUp'>							<div id='spinner'>								<div class='n'></div>								<div class='slice'>									<div class='q'></div>									<div class='pie r'></div>									<div class='pie l'></div>								</div>							</div>						</div>					</div>					<h1 class='animated fadeInUp'>Stand Up!</h1>				</div>",
+    content: "<div class='container'>					<div class='img-container'>						<div class='radialtimer animated fadeInUp'>							<div id='spinner'>								<div class='n'></div>								<div class='slice'>																		<div class='pie r'></div>									<div class='pie l'></div>								</div>							</div>						</div>					</div>					<h1 class='animated fadeInUp'>Stand Up!</h1>				</div>",
     setShadowDom: function() {
       var container, node, shadow, that;
       that = this;
